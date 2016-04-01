@@ -1,0 +1,95 @@
+
+<ons-page ng-controller="MenuController">
+
+    <ons-toolbar class="toolbar" fixed-style="">
+        <div class="left">
+            <ons-toolbar-button ng-click="app.slidingMenu.closeMenu()">
+                <ons-icon icon="ion-chevron-left" class="icon-color"></ons-icon> <span class="icon-color">Back</span>
+            </ons-toolbar-button>
+        </div>
+        <div class="center">
+            {{ pageTitle }}
+        </div>
+    </ons-toolbar>
+
+    <div ng-if="pageTitle.indexOf('API')===-1">
+        <ons-list>
+            <ons-list-item class="light-list">
+                <ons-row>
+                    <ons-col width="130px">
+                        <div>
+                            {{ lights[0].name }}
+                        </div>
+                        <ons-switch var="switch_1" ng-click="onSwitchChange(0)"></ons-switch>
+                        {{ switchStatus[switch_1.isChecked()] }}
+                    </ons-col>
+                    <ons-col>
+                        <color-picker ng-model="color_1" 
+                            color-picker-format="'hex'" 
+                            color-picker-on-change="onColorChange_1($event, color)" 
+                        ></color-picker>
+                    </ons-col>
+                </ons-row>
+            </ons-list-item>
+            <ons-list-item class="light-list">
+                <ons-row>
+                    <ons-col width="130px">
+                        <div>
+                            {{ lights[1].name }}
+                        </div>
+                        <ons-switch var="switch_2" ng-click="onSwitchChange(1)"></ons-switch>
+                        {{ switchStatus[switch_2.isChecked()] }}
+                    </ons-col>
+                    <ons-col>
+                        <color-picker ng-model="color_2"
+                            color-picker-format="'hex'" 
+                            color-picker-on-change="onColorChange_2($event, color)" 
+                        ></color-picker>
+                    </ons-col>
+                </ons-row>
+            </ons-list-item>
+            <ons-list-item class="light-list">
+                <ons-row>
+                    <ons-col width="130px">
+                        <div>
+                            {{ lights[2].name }}
+                        </div>
+                        <ons-switch var="switch_3" ng-click="onSwitchChange(2)"></ons-switch>
+                        {{ switchStatus[switch_3.isChecked()] }}
+                    </ons-col>
+                    <ons-col>
+                        <color-picker ng-model="color_3"
+                            color-picker-format="'hex'" 
+                            color-picker-on-change="onColorChange_3($event, color)" 
+                        ></color-picker>
+                    </ons-col>
+                </ons-row>
+            </ons-list-item>
+            <ons-list-item class="light-list"> 
+                <ons-row>
+                    <ons-col width="130px">
+                        <div>
+                            All Lights
+                        </div>
+                        <ons-switch var="switch_all" ng-click="onSwitchChange(99)"></ons-switch>
+                        {{ switchStatus[switch_all.isChecked()] }}
+                    </ons-col>
+                    <ons-col>
+                        <color-picker ng-model="color_all"
+                            color-picker-format="'hex'" 
+                            color-picker-on-change="onColorChange_all($event, color)" 
+                        ></color-picker>
+                    </ons-col>
+                </ons-row>
+            </ons-list-item>
+        </ons-list>
+    </div>
+
+    <ons-list ng-repeat="item in items" ng-click="onItemSelect(item, $index);" ng-if="pageTitle.indexOf('API')>-1">
+        <ons-list-item modifier="chevron" class="item">
+            <span style="margin-left: 10px;">{{ item.name }}</span>
+        </ons-list-item>
+    </ons-list>    
+    
+</ons-page>
+

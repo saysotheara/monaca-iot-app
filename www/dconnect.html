@@ -1,0 +1,12 @@
+
+    <ons-page id="list-page" ng-controller="DConnectController">
+        <ons-toolbar fixed-style="" class="toolbar">
+            <div class="center">IoT DeviceConnect</div>
+        </ons-toolbar>
+        <ons-list ng-repeat="item in actions" style="margin: 10px;" ng-click="onItemSelect(item, $index);">
+            <ons-list-item modifier="chevron" class="item">
+                <ons-icon icon="{{ item.icon }}"></ons-icon>
+                <span style="margin-left: 10px;">{{ item.desc }}</span>
+            </ons-list-item>
+        </ons-list>
+    </ons-page>

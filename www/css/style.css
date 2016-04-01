@@ -1,0 +1,23 @@
+
+.toolbar {
+	background-color: #007AFF;
+}
+
+.center {
+    color: white;
+    font-weight: 600;
+}
+.icon-color {
+    color: white;
+}
+
+.section-header {
+    text-align: left; 
+    margin-left: 10px; 
+    margin-top:12px; 
+    margin-bottom: 12px; 
+}
+
+.light-list {
+	height: 200px;
+}
